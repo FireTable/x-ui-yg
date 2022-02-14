@@ -72,7 +72,8 @@ elif [[ x"${release}" == x"debian" ]]; then
 fi
 
 install_base() {
-echo -e "开放端口……"
+echo -e "${green}关闭防火墙，开启iptables所有端口规则……${plain}\n"
+sleep 1
 systemctl stop firewalld.service >/dev/null 2>&1
 systemctl disable firewalld.service >/dev/null 2>&1
 iptables -P INPUT ACCEPT
@@ -81,6 +82,7 @@ iptables -P OUTPUT ACCEPT
 iptables -F
 v4=$(curl -s4m3 https://ip.gs)
 if [ -z $v4 ]; then
+echo -e "${green}检测到VPS为纯IPV6 Only,添加dns64${plain}\n"
 echo -e nameserver 2a01:4f8:c2c:123f::1 > /etc/resolv.conf
 fi
     if [[ x"${release}" == x"centos" ]]; then
@@ -95,12 +97,10 @@ install_x-ui() {
     cd /usr/local/
 
     if  [ $# == 0 ] ;then
-        last_version=$(curl -Ls "https://api.github.com/repos/vaxilu/x-ui/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-        if [[ ! -n "$last_version" ]]; then
-            echo -e "${red}检测 x-ui 版本失败，可能是超出 Github API 限制，请稍后再试，或手动指定 x-ui 版本安装${plain}"
-            exit 1
-        fi
-        echo -e "检测到 x-ui 最新版本：${last_version}，开始安装"
+        vaxilu_version=$(curl -Ls "https://api.github.com/repos/vaxilu/x-ui/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        last_version=$(curl -Ls "https://api.github.com/repos/kkkyg/x-ui-kkkyg/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        echo -e "${green}检测到上游端 x-ui 最新版本：${vaxilu_version}${plain}"
+        echo -e "${green}当前 x-ui-kkkyg 最新版本：${last_version}开始安装${plain}"
         wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz https://github.com//kkkyg/x-ui-kkkyg/releases/download/${last_version}/x-ui-linux-${arch}.tar.gz
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 x-ui 失败，请确保你的服务器能够下载 Github 的文件${plain}"
@@ -131,7 +131,8 @@ install_x-ui() {
     systemctl daemon-reload
     systemctl enable x-ui
     systemctl start x-ui
-echo -e "加入每分种自检x-ui守护进程"   
+echo -e "${green}加入每分种自检x-ui守护进程${plain}" 
+sleep 2
 cat>/root/goxui.sh<<-\EOF
 #!/bin/bash
 xui=`ps -aux |grep "x-ui" |grep -v "grep" |wc -l`
