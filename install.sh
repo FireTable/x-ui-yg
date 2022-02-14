@@ -40,7 +40,7 @@ else
   echo -e "${red}检测架构失败，使用默认架构: ${arch}${plain}"
 fi
 
-echo "架构: ${arch}"
+echo "${yellow}架构: ${arch}${plain}"
 
 if [ $(getconf WORD_BIT) != '32' ] && [ $(getconf LONG_BIT) != '64' ] ; then
     echo "本软件不支持 32 位系统(x86)，请使用 64 位系统(x86_64)，如果检测有误，请联系作者"
@@ -72,7 +72,7 @@ elif [[ x"${release}" == x"debian" ]]; then
 fi
 
 install_base() {
-echo -e "${green}关闭防火墙，开启iptables所有端口规则……${plain}\n"
+echo -e "${green}关闭防火墙，开启iptables所有端口规则……${plain}"
 sleep 1
 systemctl stop firewalld.service >/dev/null 2>&1
 systemctl disable firewalld.service >/dev/null 2>&1
@@ -173,7 +173,7 @@ grep -qE "^ **/1 * * * * root bash /root/goxui.sh >/dev/null 2>&1" /etc/crontab 
     echo -e "----------------------------------------------"
 }
 
-echo -e "${green}开始安装${plain}"
+echo -e "${green}开始安装必要依赖${plain}"
 install_base
+echo -e "${green}开始安装x-ui核心组件${plain}"
 install_x-ui $1
-
