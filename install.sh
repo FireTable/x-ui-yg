@@ -72,14 +72,18 @@ elif [[ x"${release}" == x"debian" ]]; then
 fi
 
 install_base() {
-echo -e "${green}关闭防火墙，开启iptables所有端口规则……${plain}"
+echo -e "${green}关闭防火墙，开放iptables所有端口规则……${plain}"
 sleep 1
 systemctl stop firewalld.service >/dev/null 2>&1
 systemctl disable firewalld.service >/dev/null 2>&1
 iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
+iptables -t nat -F
+iptables -t mangle -F 
 iptables -F
+iptables -X
+netfilter-persistent save
 v4=$(curl -s4m3 https://ip.gs)
 if [ -z $v4 ]; then
 echo -e "${green}检测到VPS为纯IPV6 Only,添加dns64${plain}\n"
