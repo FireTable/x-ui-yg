@@ -18,4 +18,4 @@
 bash <(curl -Ls https://cdn.jsdelivr.net/gh/kkkyg/x-ui-kkkyg/install.sh)
 ```
 
-安装过程会提示上游X-UI项目最新版本号与本项目最新版本号，默认安装本项目脚本
+安装过程会提示上游X-UI项目最新版本号与本项目最新版本号，默认安装本项目
