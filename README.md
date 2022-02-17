@@ -1,13 +1,13 @@
-本项目基于原X-UI（ https://github.com/vaxilu/x-ui ）进行略微的功能改动！后续将延续原X-UI的版本更新！
+本项目基于原X-UI项目（ https://github.com/vaxilu/x-ui ）进行略微的功能改动！后续将紧跟原X-UI的版本更新！
 
 具体变化如下
 
-1：支持关闭防火墙及开放iptables所有端口规则
+1：集成关闭防火墙及开放iptables所有端口规则的功能，默认启动。
 
-2：支持纯IPV6的VPS自动加入dns64功能
+2：集成纯IPV6的VPS自动加入dns64功能，默认启动。
 
-3：加入一键ACME证书申请选项
+3：集成一键ACME证书申请选项，可选。
 
-4：加入默认每分钟自动检测X-UI与Xray是否运行的进程守护功能
+4：集成默认每分钟自动检测X-UI与Xray是否运行的进程守护功能，默认启动。
 
-5：移除BBR选项及docker文件说明
+5：删减BBR选项及docker文件说明，已移除。
