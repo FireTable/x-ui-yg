@@ -105,14 +105,14 @@ install_x-ui() {
         last_version=$(curl -Ls "https://api.github.com/repos/kkkyg/x-ui-kkkyg/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         echo -e "${green}检测到上游端 x-ui 最新版本：V${vaxilu_version}${plain}"
         echo -e "${green}开始安装当前 x-ui-kkkyg 最新版本：V${last_version}${plain}"
-        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz https://github.com//kkkyg/x-ui-kkkyg/releases/download/${last_version}/x-ui-linux-${arch}.tar.gz
+        wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz https://cdn.jsdelivr.net/gh/kkkyg/x-ui-kkkyg/x-ui-linux-${arch}.tar.gz
         if [[ $? -ne 0 ]]; then
             echo -e "${red}下载 x-ui 失败，请确保你的服务器能够下载 Github 的文件${plain}"
             exit 1
         fi
     else
         last_version=$1
-        url="https://github.com//kkkyg/x-ui-kkkyg/releases/download/${last_version}/x-ui-linux-${arch}.tar.gz"
+        url="https://cdn.jsdelivr.net/gh/kkkyg/x-ui-kkkyg/x-ui-linux-${arch}.tar.gz"
         echo -e "开始安装 x-ui v$1"
         wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz ${url}
         if [[ $? -ne 0 ]]; then
