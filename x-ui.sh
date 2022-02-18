@@ -280,6 +280,13 @@ acme() {
     before_show_menu
 }
 
+bbr() {
+bash <(curl -L -s https://raw.githubusercontent.com/kkkyg/across/master/bbr.sh)
+    echo ""
+    before_show_menu
+}
+
+
 update_shell() {
     wget -O /usr/bin/x-ui -N --no-check-certificate https://github.com/kkkyg/x-ui-yg/raw/master/x-ui.sh
     if [[ $? != 0 ]]; then
@@ -427,6 +434,7 @@ show_menu() {
  ${green}13.${plain} 取消 x-ui 开机自启
 ————————————————
  ${green}14.${plain} 一键ACME申请证书
+ ${green}15.${plain} 一键BBR+FQ加速
  "
     show_status
     echo && read -p "请输入选择 [0-14]: " num
@@ -461,6 +469,8 @@ show_menu() {
         13) check_install && disable
         ;;
         14) acme
+        ;;
+        15) bbr
         ;;
         *) echo -e "${red}请输入正确的数字 [0-14]${plain}"
         ;;
