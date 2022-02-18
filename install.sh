@@ -102,7 +102,7 @@ install_x-ui() {
 
     if  [ $# == 0 ] ;then
         vaxilu_version=$(curl -Ls "https://api.github.com/repos/vaxilu/x-ui/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-        last_version=$(curl -Ls "https://api.github.com/repos/kkkyg/x-ui-kkkyg/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        last_version=$(curl -Ls "https://api.github.com/repos/kkkyg/x-ui-yg/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         echo -e "${green}检测到上游端 x-ui 最新版本：V${vaxilu_version}${plain}"
         echo -e "${green}开始安装当前 x-ui-yg 最新版本：V${last_version}${plain}"
         wget -N --no-check-certificate -O /usr/local/x-ui-linux-${arch}.tar.gz https://cdn.jsdelivr.net/gh/kkkyg/x-ui-yg/x-ui-linux-${arch}.tar.gz
