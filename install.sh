@@ -177,7 +177,7 @@ grep -qE "^ **/1 * * * * root bash /root/goxui.sh >/dev/null 2>&1" /etc/crontab 
     echo -e "----------------------------------------------"
 }
 
-echo -e "${green}开始安装必要依赖${plain}"
+echo -e "${green}开始安装x-ui必要依赖${plain}"
 install_base
 echo -e "${green}开始安装x-ui核心组件${plain}"
 install_x-ui $1
