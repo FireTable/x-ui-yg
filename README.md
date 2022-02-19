@@ -15,7 +15,7 @@
 一键脚本（支持纯IPV4、纯IPV6、双栈V4V6的VPS）
 
 ```
-bash <(curl -Ls https://cdn.jsdelivr.net/gh/kkkyg/x-ui-yg@0.3.2.1/install.sh)
+bash <(curl -Ls https://cdn.jsdelivr.net/gh/kkkyg/x-ui-yg@main/install.sh)
 ```
 
 安装过程会提示上游X-UI项目最新版本号与本项目最新版本号，默认安装本项目
