@@ -76,6 +76,7 @@ echo -e "${green}关闭防火墙，开放iptables所有端口规则……${plain
 sleep 1
 systemctl stop firewalld.service >/dev/null 2>&1
 systemctl disable firewalld.service >/dev/null 2>&1
+ufw disable >/dev/null 2>&1
 iptables -P INPUT ACCEPT
 iptables -P FORWARD ACCEPT
 iptables -P OUTPUT ACCEPT
