@@ -19,7 +19,8 @@ white "
  ░██ ░██       ░██ ░██       ░██ ░██          ░██         ░██    ░░██
  ░██  ░░██     ░██  ░░██     ░██  ░░██        ░██          ░██ ██ ██ "
 red "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" 
-yellow " 详细说明 https://github.com/kkkyg/kkkyg  YouTube频道：甬哥侃侃侃"       
+yellow "详细说明 https://github.com/kkkyg/x-ui-yg  YouTube频道：甬哥侃侃侃"   
+yellow "本项目将延续原x-ui更新：https://github.com/vaxilu/x-ui"
 
 sleep 3
 cur_dir=$(pwd)
