@@ -396,7 +396,7 @@ show_xray_status() {
 show_usage() {
     echo "x-ui 管理脚本使用方法: "
     echo "------------------------------------------"
-    echo "x-ui              - 显示管理菜单 (集成一键AMCE申请证书)"
+    echo "x-ui              - 显示管理菜单 (集成一键ACE申请证书)"
     echo "x-ui start        - 启动 x-ui 面板"
     echo "x-ui stop         - 停止 x-ui 面板"
     echo "x-ui restart      - 重启 x-ui 面板"
