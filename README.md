@@ -1,3 +1,5 @@
+
+
 本项目基于上游X-UI项目（ https://github.com/vaxilu/x-ui ）进行略微的功能改动！后续将紧跟上游X-UI的版本更新！
 
 具体变化如下
@@ -17,5 +19,7 @@
 ```
 bash <(curl -Ls https://cdn.jsdelivr.net/gh/kkkyg/x-ui-yg@0.3.2.6/install.sh)
 ```
+
+注：必须使用 root 用户运行。
 
 安装过程会提示上游X-UI项目最新版本号与本项目最新版本号，默认安装本项目
